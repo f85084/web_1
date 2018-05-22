@@ -1,0 +1,15 @@
+﻿@using web.Models;
+@model User
+@{
+    ViewBag.Title = "User Details";
+}
+<h2>帳戶資訊</h2>
+<ul>
+    <li>Id: @Model.Id</li>
+    <li>帳號: @Model.UserAccount</li>
+    <li>類別: @Model.UserClass</li>
+    <li>Email: @Model.Email</li>
+    <li>暱稱: @Model.UserName</li>
+    <li>留言日期: @Model.CreatDate</li>
+</ul>
+@Html.ActionLink("回到帳戶清單頁面", "Index", "User")
