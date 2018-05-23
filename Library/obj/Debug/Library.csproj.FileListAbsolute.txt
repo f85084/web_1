@@ -10,3 +10,15 @@ D:\Anna\product\web\Web\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 D:\Anna\product\web\Web\Library\obj\Debug\Library.csproj.CopyComplete
 D:\Anna\product\web\Web\Library\obj\Debug\Library.dll
 D:\Anna\product\web\Web\Library\obj\Debug\Library.pdb
+D:\Project\web\Library\bin\Debug\Library.dll.config
+D:\Project\web\Library\bin\Debug\Library.dll
+D:\Project\web\Library\bin\Debug\Library.pdb
+D:\Project\web\Library\bin\Debug\EntityFramework.dll
+D:\Project\web\Library\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project\web\Library\bin\Debug\EntityFramework.xml
+D:\Project\web\Library\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project\web\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
+D:\Project\web\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+D:\Project\web\Library\obj\Debug\Library.csproj.CopyComplete
+D:\Project\web\Library\obj\Debug\Library.dll
+D:\Project\web\Library\obj\Debug\Library.pdb
