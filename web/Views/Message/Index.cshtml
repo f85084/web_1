@@ -1,0 +1,63 @@
+﻿@using Library;
+@model IEnumerable<Library.Message>
+
+@{
+    Layout = null;
+}
+
+<p>
+    @Html.ActionLink("建立新的留言", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Context)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (Message item in Model)
+    {
+        using (Html.BeginForm("Delete", "Message", new { id = item.Id }))
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Context)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatDate)
+                    </td>
+                    <td>
+
+                        <input type="button" value="編輯" onclick="location.href='@Url.Action("Edit", "User", new{ id = item.Id })'" />
+                        <input type="button" value="明細" onclick="location.href='@Url.Action("Details", "User", new{ id = item.Id })'" />
+                        <input type="submit" value="刪除"
+                               onclick="return confirm('確定要刪除嗎? Id = @item.Id , Name = @item.UserId');" />
+                    </td>
+                </tr>
+            }
+        }
+
+
+    </table>

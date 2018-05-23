@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library
+namespace web.Models
 {
-    class Message
+    public class Message
     {
         public int Id { get; set; }
         public int UserId { get; set; }
         public string UserName { get; set; }
         public string Context { get; set; }
-        public DateTime? CreatDate { get; set; }
+        public DateTime CreatDate { get; set; }
     }
 }

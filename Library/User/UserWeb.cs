@@ -20,7 +20,7 @@ namespace Library
                 List<User> users = new List<User>();
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("spGetUsers", con);
+                    SqlCommand cmd = new SqlCommand("spGetUser", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     SqlDataReader rdr = cmd.ExecuteReader();
@@ -36,6 +36,7 @@ namespace Library
                         user.UserName = rdr["UserName"].ToString();
                         user.CreatDate = Convert.ToDateTime(rdr["CreatDate"]);
                         user.MofiyDate = Convert.ToDateTime(rdr["MofiyDate"]);
+                        //user.MofiyDate = DBNull.Value==   ? 0:Convert.ToDateTime(rdr["MofiyDate"]) ;
                         users.Add(user);
                     }
                 }
@@ -43,15 +44,16 @@ namespace Library
             }
         }
 
-        public void AddGamer(User user)
+        DateTime dt = DateTime.Now; //現在時間 
+
+        public void AddUser(User user)
         {
             string connectionString =
             ConfigurationManager.ConnectionStrings["webContext"].ConnectionString;
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("spAddGamer", con)
-                //把Gamer透過spAddGamer加進DataBase裡面
+                SqlCommand cmd = new SqlCommand("spAddUser", con)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -94,14 +96,14 @@ namespace Library
                 SqlParameter sqlParamCreatDate = new SqlParameter
                 {
                     ParameterName = "@CreatDate",
-                    Value = user.CreatDate
+                    Value = dt
                 };
                 cmd.Parameters.Add(sqlParamCreatDate);
 
                 SqlParameter sqlParamMofiyDate = new SqlParameter
                 {
                     ParameterName = "@MofiyDate",
-                    Value = user.MofiyDate
+                    Value = dt
                 };
                 cmd.Parameters.Add(sqlParamMofiyDate);
 
@@ -109,5 +111,96 @@ namespace Library
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void SaveUser(User user)
+        {
+            string connectionString =
+                ConfigurationManager.ConnectionStrings["webContext"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spSaveUser", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+               
+                SqlParameter sqlParamUserAccount = new SqlParameter
+                {
+                    ParameterName = "@UserAccount",
+                    Value = user.UserAccount
+                };
+                cmd.Parameters.Add(sqlParamUserAccount);
+
+                SqlParameter sqlParamUserClass = new SqlParameter
+                {
+                    ParameterName = "@UserClass",
+                    Value = user.UserClass
+                };
+                cmd.Parameters.Add(sqlParamUserClass);
+
+                SqlParameter sqlParamEmail = new SqlParameter
+                {
+                    ParameterName = "@Email",
+                    Value = user.Email
+                };
+                cmd.Parameters.Add(sqlParamEmail);
+
+                SqlParameter sqlParamPassword = new SqlParameter
+                {
+                    ParameterName = "@Password",
+                    Value = user.Password
+                };
+                cmd.Parameters.Add(sqlParamPassword);
+
+                SqlParameter sqlParamUserName = new SqlParameter
+                {
+                    ParameterName = "@UserName",
+                    Value = user.UserName
+                };
+                cmd.Parameters.Add(sqlParamUserName);
+
+                SqlParameter sqlParamCreatDate = new SqlParameter
+                {
+                    ParameterName = "@CreatDate",
+                    Value = dt
+                };
+                cmd.Parameters.Add(sqlParamCreatDate);
+
+                SqlParameter sqlParamMofiyDate = new SqlParameter
+                {
+                    ParameterName = "@MofiyDate",
+                    Value = dt
+                };
+                cmd.Parameters.Add(sqlParamMofiyDate);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteUser(int id)
+        {
+            string connectionString =
+                    ConfigurationManager.ConnectionStrings["webContext"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spDeleteUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter sqlParamId = new SqlParameter
+                {
+                    ParameterName = "@Id",
+                    Value = id
+                };
+                cmd.Parameters.Add(sqlParamId);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
     }
 }

@@ -1,10 +1,12 @@
-﻿@model IEnumerable<Library.User>
+﻿@using Library;
+@model IEnumerable<Library.User>
+
 @{
     Layout = null;
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("建立新的會員", "Create")
 </p>
 <table class="table">
     <tr>
@@ -26,30 +28,36 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (User item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserAccount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-    }
+        using (Html.BeginForm("Delete", "User", new { id = item.Id }))
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserAccount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
 
-</table>
+                        <input type="button" value="編輯" onclick="location.href='@Url.Action("Edit", "User", new{ id = item.Id })'" />
+                        <input type="button" value="明細" onclick="location.href='@Url.Action("Details", "User", new{ id = item.Id })'" />
+                        <input type="submit" value="刪除"
+                               onclick="return confirm('確定要刪除嗎? Id = @item.Id , Name = @item.UserAccount');" />
+                    </td>
+                </tr>
+            }
+        }
+
+
+    </table>
