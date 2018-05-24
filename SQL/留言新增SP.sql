@@ -7,9 +7,9 @@ CREATE PROCEDURE spAddMessage
     )
 AS
     BEGIN  
-	ALTER TABLE [Message]
-ADD FOREIGN KEY (UserId)
-REFERENCES [User](Id)
+--	ALTER TABLE [Message]
+--ADD FOREIGN KEY (UserId)
+--REFERENCES [User](Id)
         INSERT  INTO [Message]
         VALUES  ( @UserId, @UserName, @Context, getdate() );  
     END;

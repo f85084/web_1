@@ -1,14 +1,10 @@
 ﻿@model Library.User
 
-@{
-    Layout = null;
-}
-
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <div class="row">
-    <h2>Update Gamer</h2>
+    <h2>編輯</h2>
 
     @using (Html.BeginForm("Edit", "User"))
     {
@@ -18,7 +14,7 @@
             @Html.HiddenFor(model => model.Id)
 
             <div class="form-group">
-                @Html.LabelFor(model => model.UserAccount, new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.UserAccount,"會員帳號", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.HiddenFor(model => model.UserAccount, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.DisplayFor(model => model.UserAccount, new { htmlAttributes = new { @class = "form-control" } })

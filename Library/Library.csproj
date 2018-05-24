@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="Message\Message.cs" />
     <Compile Include="Message\MessageWeb.cs" />
-    <Compile Include="Repiy.cs" />
+    <Compile Include="Reply.cs" />
     <Compile Include="User\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\UserWeb.cs" />

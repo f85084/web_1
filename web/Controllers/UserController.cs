@@ -20,7 +20,7 @@ namespace webtext.web.Controllers
             return View(users);
         }
 
-        public ActionResult Details(int id = 0)
+        public ActionResult Details(int id)
         {
             var WebContext = new webContext();
             User user;
@@ -36,12 +36,15 @@ namespace webtext.web.Controllers
                     UserName = "NULL"
                 };
             }
-            else
-            {
-                user = WebContext.Users.Single(p => p.Id == id);
-                //Throws exception if can not find the single entity
-            }
-            return View(user);
+            //else
+            //{
+            //    user = WebContext.Users.Single(p => p.Id == id);
+            //    //UserWeb userWeb = new UserWeb();
+            //    //Library.User user = userWeb.Users.Single(g => g.Id == id);
+
+            //    //Throws exception if can not find the single entity
+            //}
+            return View();
         }
 
         /**建立**/

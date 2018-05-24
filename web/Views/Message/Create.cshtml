@@ -1,8 +1,6 @@
-﻿
-@model Library.Message
+﻿@model Library.Message
 @{
 }
-
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
@@ -15,36 +13,21 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <div class="form-horizontal">
-        @*<div class="form-group">
-            @Html.Label("UserId", "帳號", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-        @Html.Hidden("UserId", "1")
 
-        @*<div class="form-group">
-            @Html.Label("UserName", "名稱", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+        @Html.Hidden("UserId", "1")
         @Html.Hidden("UserName", "BBB")
 
         <div class="form-group">
             @Html.Label("Context", "內容", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.TextArea("Context", "", 10, 40, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.EditorFor(model => model.Context, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextArea("Context", " ", 6, 60, new { style = "border: solid 1px #ccc; border-radius: 0.25rem; " })
                 @Html.ValidationMessageFor(model => model.Context, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="留言" class="btn btn-default  " />
             </div>
         </div>
     </div>
