@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace web.Models
 {
+    [Table("User", Schema = "dbo")]
     public class User
     {
         public int Id { get; set; }

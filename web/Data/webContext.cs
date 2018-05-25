@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using User = web.Models.User;
-using Message = web.Models.Message;
+using web.Models;
 
 namespace web.Data
 {
@@ -13,6 +12,6 @@ namespace web.Data
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Message> Messages { get; set; }
-        //public DbSet<Reply> Replys { get; set; }
+        public DbSet<Reply> Replys { get; set; }
     }
 }

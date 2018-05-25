@@ -19,7 +19,6 @@ D:\Anna\product\web\Web\web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 D:\Anna\product\web\Web\web\bin\roslyn\Microsoft.VisualBasic.Core.targets
 D:\Anna\product\web\Web\web\bin\roslyn\Microsoft.Win32.Primitives.dll
 D:\Anna\product\web\Web\web\bin\roslyn\System.AppContext.dll
-D:\Anna\product\web\Web\web\bin\roslyn\System.Collections.Immutable.dll
 D:\Anna\product\web\Web\web\bin\roslyn\System.Console.dll
 D:\Anna\product\web\Web\web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 D:\Anna\product\web\Web\web\bin\roslyn\System.Diagnostics.Process.dll
@@ -166,3 +165,4 @@ D:\Project\web\web\obj\Debug\web.csproj.CoreCompileInputs.cache
 D:\Project\web\web\obj\Debug\web.csproj.CopyComplete
 D:\Project\web\web\obj\Debug\web.dll
 D:\Project\web\web\obj\Debug\web.pdb
+D:\Anna\product\web\Web\web\bin\roslyn\System.Collections.Immutable.dll

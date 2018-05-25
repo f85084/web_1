@@ -63,39 +63,39 @@ namespace webtext.web.Controllers
         }
 
         /**更新讀取**/
-        [HttpGet]
-        public ActionResult Edit(int id)
-        {
-            MessageWeb messageWeb = new MessageWeb();
-            Library.Message message = messageWeb.Messages.Single(g => g.Id == id);
-            return View(message);
-        }
+        //[HttpGet]
+        //public ActionResult Edit(int id)
+        //{
+        //    MessageWeb messageWeb = new MessageWeb();
+        //    Library.Message message = messageWeb.Messages.Single(g => g.Id == id);
+        //    return View(message);
+        //}
 
-        /**更新動作**/
-        [HttpPost]
-        public ActionResult Edit([Bind(Include = "UserId, UserName, Context")]Library.Message message)
-        {
-            MessageWeb messageWeb = new MessageWeb();
-            message.Id = messageWeb.Messages.Single(g => g.Id == message.Id).Id;
+        ///**更新動作**/
+        //[HttpPost]
+        //public ActionResult Edit([Bind(Include = "UserId, UserName, Context")]Library.Message message)
+        //{
+        //    MessageWeb messageWeb = new MessageWeb();
+        //    message.Id = messageWeb.Messages.Single(g => g.Id == message.Id).Id;
 
-            if (!ModelState.IsValid)
-            {
-                return View("Edit", message);
-            }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View("Edit", message);
+        //    }
 
-            messageWeb.SaveMessage(message);
+        //    messageWeb.SaveMessage(message);
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
-        /**刪除動作**/
-        [HttpPost]
-        public ActionResult Delete(int id)
-        {
-            MessageWeb messageWeb = new MessageWeb();
-            messageWeb.DeleteMessage(id);
-            return RedirectToAction("Index");
-        }
+        ///**刪除動作**/
+        //[HttpPost]
+        //public ActionResult Delete(int id)
+        //{
+        //    MessageWeb messageWeb = new MessageWeb();
+        //    messageWeb.DeleteMessage(id);
+        //    return RedirectToAction("Index");
+        //}
 
     }
 }

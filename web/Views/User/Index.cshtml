@@ -28,30 +28,30 @@
             </tr>
 
             @foreach (User item in Model)
-        {
-            using (Html.BeginForm("Delete", "User", new { id = item.Id }))
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserAccount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserName)
-                    </td>
-                    <td>
-                        <input type="button" class="btn btn-primary btn-sm" value="編輯" onclick="location.href='@Url.Action("Edit", "User", new{ id = item.Id })'" />
-                        <input type="button" class="btn btn-primary btn-sm" value="明細" onclick="location.href='@Url.Action("Details", "User", new{ id = item.Id })'" />
-                        <input type="submit" class="btn btn-primary btn-sm" value="刪除" onclick="return confirm('確定要刪除嗎? Id = @item.Id , Name = @item.UserAccount');" />
-                    </td>
-                </tr>
-        }
-    }
+                using (Html.BeginForm("Delete", "User", new { id = item.Id }))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserAccount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            <input type="button" class="btn btn-primary btn-sm" value="編輯" onclick="location.href='@Url.Action("Edit", "User", new{ id = item.Id })'" />
+                            <input type="button" class="btn btn-primary btn-sm" value="明細" onclick="location.href='@Url.Action("Details", "User", new{ id = item.Id })'" />
+                            <input type="submit" class="btn btn-primary btn-sm" value="刪除" onclick="return confirm('確定要刪除嗎? Id = @item.Id , Name = @item.UserAccount');" />
+                        </td>
+                    </tr>
+                }
+            }
         </table>
     </div>
 </div>

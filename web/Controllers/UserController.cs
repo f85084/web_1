@@ -36,14 +36,14 @@ namespace webtext.web.Controllers
                     UserName = "NULL"
                 };
             }
-            //else
-            //{
-            //    user = WebContext.Users.Single(p => p.Id == id);
-            //    //UserWeb userWeb = new UserWeb();
-            //    //Library.User user = userWeb.Users.Single(g => g.Id == id);
+            else
+            {
+                user = WebContext.Users.Single(p => p.Id == id);
+                //    //UserWeb userWeb = new UserWeb();
+                //    //Library.User user = userWeb.Users.Single(g => g.Id == id);
 
-            //    //Throws exception if can not find the single entity
-            //}
+                //    //Throws exception if can not find the single entity
+            }
             return View();
         }
 
@@ -101,6 +101,7 @@ namespace webtext.web.Controllers
             userWeb.DeleteUser(id);
             return RedirectToAction("Index");
         }
+
 
     }
 }

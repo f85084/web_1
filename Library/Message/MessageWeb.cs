@@ -28,7 +28,7 @@ namespace Library
                     {
                         Message message = new Message();
                         message.Id = Convert.ToInt32(rdr["Id"]);
-                        message.UserId = Convert.ToInt32(rdr["Id"]);
+                        message.UserId = Convert.ToInt32(rdr["UserId"]);
                         message.UserName = rdr["UserName"].ToString();
                         message.Context = rdr["Context"].ToString();
                         message.CreatDate = Convert.ToDateTime(rdr["CreatDate"]);
@@ -86,73 +86,73 @@ namespace Library
             }
         }
 
-        public void SaveMessage(Message message)
-        {
-            string connectionString =
-                ConfigurationManager.ConnectionStrings["webContext"].ConnectionString;
+        //public void SaveMessage(Message message)
+        //{
+        //    string connectionString =
+        //        ConfigurationManager.ConnectionStrings["webContext"].ConnectionString;
 
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand("spSaveMessage", con)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
+        //    using (SqlConnection con = new SqlConnection(connectionString))
+        //    {
+        //        SqlCommand cmd = new SqlCommand("spSaveMessage", con)
+        //        {
+        //            CommandType = CommandType.StoredProcedure
+        //        };
 
 
-                SqlParameter sqlParamUserId = new SqlParameter
-                {
-                    ParameterName = "@UserId",
-                    Value = message.UserId
-                };
-                cmd.Parameters.Add(sqlParamUserId);
+        //        SqlParameter sqlParamUserId = new SqlParameter
+        //        {
+        //            ParameterName = "@UserId",
+        //            Value = message.UserId
+        //        };
+        //        cmd.Parameters.Add(sqlParamUserId);
 
-                SqlParameter sqlParamUserName = new SqlParameter
-                {
-                    ParameterName = "@UserName",
-                    Value = message.UserName
-                };
-                cmd.Parameters.Add(sqlParamUserName);
+        //        SqlParameter sqlParamUserName = new SqlParameter
+        //        {
+        //            ParameterName = "@UserName",
+        //            Value = message.UserName
+        //        };
+        //        cmd.Parameters.Add(sqlParamUserName);
 
-                SqlParameter sqlParamContext = new SqlParameter
-                {
-                    ParameterName = "@Context",
-                    Value = message.Context
-                };
-                cmd.Parameters.Add(sqlParamContext);
+        //        SqlParameter sqlParamContext = new SqlParameter
+        //        {
+        //            ParameterName = "@Context",
+        //            Value = message.Context
+        //        };
+        //        cmd.Parameters.Add(sqlParamContext);
 
-                SqlParameter sqlParamCreatDate = new SqlParameter
-                {
-                    ParameterName = "@CreatDate",
-                    Value = dt
-                };
-                cmd.Parameters.Add(sqlParamCreatDate);
+        //        SqlParameter sqlParamCreatDate = new SqlParameter
+        //        {
+        //            ParameterName = "@CreatDate",
+        //            Value = dt
+        //        };
+        //        cmd.Parameters.Add(sqlParamCreatDate);
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
+        //        con.Open();
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //}
 
-        public void DeleteMessage(int id)
-        {
-            string connectionString =
-                    ConfigurationManager.ConnectionStrings["webContext"].ConnectionString;
+        //public void DeleteMessage(int id)
+        //{
+        //    string connectionString =
+        //            ConfigurationManager.ConnectionStrings["webContext"].ConnectionString;
 
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand("spDeleteMessage", con);
-                cmd.CommandType = CommandType.StoredProcedure;
+        //    using (SqlConnection con = new SqlConnection(connectionString))
+        //    {
+        //        SqlCommand cmd = new SqlCommand("spDeleteMessage", con);
+        //        cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter sqlParamId = new SqlParameter
-                {
-                    ParameterName = "@Id",
-                    Value = id
-                };
-                cmd.Parameters.Add(sqlParamId);
+        //        SqlParameter sqlParamId = new SqlParameter
+        //        {
+        //            ParameterName = "@Id",
+        //            Value = id
+        //        };
+        //        cmd.Parameters.Add(sqlParamId);
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
+        //        con.Open();
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //}
 
 
     }
